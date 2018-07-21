@@ -19,6 +19,7 @@ Page({
    * 展示的时候
    */
   onShow:function(){
+    console.log("onShow");
     var that = this;
     if (wx.canIUse('checkIsSupportSoterAuthentication')) {
       //是否支持当前接口
