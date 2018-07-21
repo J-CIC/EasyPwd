@@ -45,6 +45,36 @@ Page({
   },
 
   /**
+   * 展示并复制密码
+   */
+  showPwd:function(e){
+    var that = this;
+    var timestamp = e.target.id;
+    var pwd = "";
+    for(var i=0;i<that.data.list.length;i++){
+      if(that.data.list[i].timestamp==timestamp){
+        pwd = that.data.list[i].pwd;
+      }
+    }
+    wx.showModal({
+      content: '密码为：\n'+ pwd +'\n点击复制将密码复制到剪贴板',
+      cancelText: "取消",
+      confirmText:"复制",
+      success: function (res) {
+        if(res.confirm){
+          //设置到剪贴板
+          wx.setClipboardData({
+            data: pwd,
+            success: function (res) {
+              
+            }
+          })
+        }
+      }
+    });
+  },
+
+  /**
    * 同步开关变化
    */
   changeSync:function(e){

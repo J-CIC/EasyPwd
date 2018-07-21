@@ -34,7 +34,7 @@
       <view class="weui-form-preview" wx:for="{{list}}" wx:key="timestamp">
           <view class="weui-form-preview__hd">
               <view class="weui-form-preview__label">密码场景</view>
-              <view class="weui-form-preview__value_in-hd">{{item.scene}}</view>
+              <view class="weui-form-preview__value_in-hd" style='font-size:20px;'>{{item.scene}}</view>
           </view>
           <view class="weui-form-preview__bd">
             <view class="weui-form-preview__item">
@@ -48,7 +48,7 @@
         </view>
         <view class="weui-form-preview__ft">
            <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" url="edit?scene={{item.scene}}&timestamp={{item.timestamp}}" >编辑/删除</navigator> 
-          <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="tapName">查看/复制</view>
+          <view id="{{item.timestamp}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="showPwd">查看/复制</view>
         </view>
       </view>
     </view>
