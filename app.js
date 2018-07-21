@@ -15,9 +15,11 @@ App({
    */
   onShow:function(){
     if (!util.checkLastAuthTime()) {
-      wx.redirectTo({
-        url: '/pages/index/index',
-      });
+      if (getCurrentPages().length!=0){
+        wx.redirectTo({
+          url: '/pages/index/index',
+        });
+      }
     }
   },
 
