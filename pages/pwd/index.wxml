@@ -1,0 +1,56 @@
+<!--pages/pwd/index.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">我记录的密码</view>
+    <view class="page__desc">{{count}}个</view>
+    <view class="page__desc">受小程序缓存限制的影响，本地保存密码是易失的，永久保存请打开同步</view>
+  </view>
+  <view class="weui-cells__title">同步开关</view>
+  <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">同步</view>
+          <view class="weui-cell__ft">
+              <switch checked="{{sync}}" bindchange='changeSync' />
+          </view>
+      </view>
+  </view>
+  <view class="weui-cells__title">记录</view>
+  <view class="weui-cells weui-cells_after-title">
+    <navigator url="/pages/pwd/newrecord" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">创建记录</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+  </view>
+  <view class="weui-cells__title">小程序验证</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view url="/pages/pwd/newrecord" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='resetLoginPwd'>
+        <view class="weui-cell__bd">重置验证密码</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+  <view class="page__bd" >
+    <view class="weui-cells__title">密码列表</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-form-preview" wx:for="{{list}}" wx:key="timestamp">
+          <view class="weui-form-preview__hd">
+              <view class="weui-form-preview__label">密码场景</view>
+              <view class="weui-form-preview__value_in-hd">{{item.scene}}</view>
+          </view>
+          <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">密码长度</view>
+              <view class="weui-form-preview__value">{{item.pwd.length}}</view>
+            </view>
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">记录时间</view>
+              <view class="weui-form-preview__value">{{item.time}}</view>
+            </view>
+        </view>
+        <view class="weui-form-preview__ft">
+           <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" url="edit?scene={{item.scene}}&timestamp={{item.timestamp}}" >编辑/删除</navigator> 
+          <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="tapName">查看/复制</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

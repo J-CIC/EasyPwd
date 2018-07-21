@@ -1,0 +1,56 @@
+<!--pages/pwd/edit.wxml-->
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="page__hd">
+        <view class="page__title">密码记录</view>
+        <view class="page__desc">创建记录</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{Error}}</view>
+        <view class="weui-cells__title">开关</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_switch">
+                <view class="weui-cell__bd">随机生成</view>
+                <view class="weui-cell__ft">
+                    <switch bindchange="changeSwitch"/>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{random}}">
+          <view class="weui-cells__title">密码长度</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" style='width:100%'>
+                <view class="picker">
+                  当前长度：{{array[index]}}
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+        
+
+        <view class="weui-cells__title">详细</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">使用场景</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="如QQ邮箱" value="{{old_scene}}" bindinput='changeScene'/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">密码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="要记录的密码" value='{{pwd}}' bindinput="changePwd"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="confirm">确定</button>
+            <button class="weui-btn" type="warn" bindtap='remove'>删除</button>
+        </view>
+    </view>
+</view>

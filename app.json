@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/pwd/index",
+    "pages/pwd/newrecord",
+    "pages/pwd/edit"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "EasyPwd",
+    "navigationBarTextStyle": "black"
+  }
+}
