@@ -1,4 +1,5 @@
 // pages/pwd/newrecord.js
+var util = require('../../utils/util.js');
 Page({
 
   /**
@@ -111,7 +112,7 @@ Page({
       return;
     }
     //生成对象
-    var time_str = that.getTime();
+    var time_str = util.getTime();
     var record_obj = {
       "time":time_str,
       "scene":that.data["scene"],
@@ -133,20 +134,6 @@ Page({
     wx.navigateBack({
       
     })
-  },
-
-  /**
-   * 获取时间
-   */
-  getTime:function(){
-    var date = new Date();
-    var Y = date.getFullYear() + '-';
-    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-    var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate() )  + ' ';
-    var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) +':';
-    var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
-    var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()); 
-    return Y + M + D + h + m + s;
   },
 
   /**
