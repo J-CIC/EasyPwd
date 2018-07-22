@@ -63,6 +63,12 @@ Page({
         var obj = JSON.parse(res.resultJSON);
         if(obj.raw==that.data["finger_auth"]){
           wx.setStorageSync("lastAuthTime", new Date().getTime());
+          //若是第一次，需要设置密码
+          var initPwd = wx.getStorageSync('authPwd');
+          if(!initPwd){
+            that.authByCode();
+            return ;
+          }
           wx.redirectTo({
             url: '/pages/pwd/index',
           });
