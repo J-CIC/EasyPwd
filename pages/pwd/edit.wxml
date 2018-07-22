@@ -2,7 +2,7 @@
 <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
     <view class="page__hd">
         <view class="page__title">密码记录</view>
-        <view class="page__desc">创建记录</view>
+        <view class="page__desc">编辑记录</view>
     </view>
     <view class="page__bd">
         <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{Error}}</view>
@@ -49,7 +49,7 @@
             </view>
         </view>
         <view class="weui-btn-area">
-            <button class="weui-btn" type="primary" bindtap="confirm">确定</button>
+            <button class="weui-btn" type="primary" bindtap="confirm">保存</button>
             <button class="weui-btn" type="warn" bindtap='remove'>删除</button>
         </view>
     </view>
