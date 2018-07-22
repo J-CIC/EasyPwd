@@ -3,7 +3,7 @@
   <view class="page__hd">
     <view class="page__title">我记录的密码</view>
     <view class="page__desc">{{count}}个</view>
-    <view class="page__desc">受小程序缓存限制的影响，本地保存密码是易失的，永久保存请打开同步</view>
+    <view class="page__desc">受小程序缓存限制的影响，本地保存密码在极特殊的情况下可能丢失，永久保存请打开同步</view>
   </view>
   <view class="weui-cells__title">同步开关</view>
   <view class="weui-cells weui-cells_after-title">
