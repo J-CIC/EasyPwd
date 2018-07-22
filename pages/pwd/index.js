@@ -98,7 +98,7 @@ Page({
    */
   resetLoginPwd:function(){
     wx.setStorageSync("authPwd", "");
-    wx.redirectTo({
+    wx.reLaunch({
       url: '/pages/index/index',
     })
   }

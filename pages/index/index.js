@@ -12,13 +12,7 @@ Page({
     finger_auth:"",
   },
   onLoad: function () {  
-   
-  },
-
-  /**
-   * 展示的时候
-   */
-  onShow:function(){
+    // console.log("page onShow")
     var that = this;
     if (wx.canIUse('checkIsSupportSoterAuthentication')) {
       //是否支持当前接口
@@ -27,14 +21,16 @@ Page({
           // res.supportMode = [] 不具备任何被SOTER支持的生物识别方式
           // res.supportMode = ['fingerPrint'] 只支持指纹识别
           // res.supportMode = ['fingerPrint', 'facial'] 支持指纹识别和人脸识别
-          console.log(res.supportMode)
+          // console.log(res.supportMode)
           if (res.supportMode.indexOf('fingerPrint') != -1) {
+            console.log("go to auth finger")
             that.authByFinger();
           } else {
             that.authByCode();
           }
         },
         fail(res) {
+          console.log("fail to start auth")
           that.authByCode();
         }
       })
@@ -42,6 +38,13 @@ Page({
       //直接用密码登录
       that.authByCode();
     }
+  },
+
+  /**
+   * 展示的时候
+   */
+  onShow:function(){
+    
   },
   /**
    * 指纹认证

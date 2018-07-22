@@ -8,14 +8,16 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
+    // console.log("APP onlaunch")
   },
 
   /**
    * 如果超出上次验证时间，返回首页进行验证
    */
-  onShow:function(){
+  onShow:function(args){
+    // console.log(args)
     if (!util.checkLastAuthTime()) {
-      if (getCurrentPages().length!=0){
+      if (args.path !="pages/index/index") {
         wx.redirectTo({
           url: '/pages/index/index',
         });
